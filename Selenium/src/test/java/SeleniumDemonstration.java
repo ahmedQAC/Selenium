@@ -1,5 +1,7 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -8,7 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumDemonstration {
 	
@@ -57,6 +62,7 @@ public class SeleniumDemonstration {
 	}
 	
 	@Test
+	@Ignore
 	public void getAllIngredients() throws InterruptedException {
 		Constant constant = new Constant();
 		driver.get(constant.URL);
@@ -65,4 +71,25 @@ public class SeleniumDemonstration {
 		Thread.sleep(5000);
 	}
 	
+	@Test
+	@Ignore
+	public void implicitWait() throws InterruptedException {
+		driver.get("https://christophperrins.github.io/TestingSite/");
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		WebElement myDynamicElement = driver.findElement(By.xpath("//*[@id=\"quote\"]/h2"));
+		assertEquals("-The Shafeeq not found", "-The Shafeeq", myDynamicElement.getText());
+	}
+	
+	@Test
+	
+	public void explicitWait() throws InterruptedException {
+		driver.get("https://christophperrins.github.io/TestingSite/"); 
+		WebElement myDynamicElement = (new WebDriverWait(driver, 10)).until(ExpectedConditions.textToBePresentInElement(element, )(By.xpath("//*[@id=\"quote\"]/h2"))); 
+		assertEquals("-The Shafeeq not found", "-The Shafeeq", myDynamicElement.getText());
+	}
+	
+	@Test
+	public void fluentWait() {
+		
+	}
 }
