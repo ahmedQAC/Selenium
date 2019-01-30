@@ -31,7 +31,6 @@ public class SeleniumDemonstration {
 	}
 	
 	@Test
-	@Ignore
 	public void esty() throws InterruptedException {
 		driver.manage().window().maximize();
 		driver.get("http://wwww.bing.com");
@@ -80,16 +79,16 @@ public class SeleniumDemonstration {
 		assertEquals("-The Shafeeq not found", "-The Shafeeq", myDynamicElement.getText());
 	}
 	
-	@Test
-	
-	public void explicitWait() throws InterruptedException {
-		driver.get("https://christophperrins.github.io/TestingSite/"); 
-		WebElement myDynamicElement = (new WebDriverWait(driver, 10)).until(ExpectedConditions.textToBePresentInElement(element, )(By.xpath("//*[@id=\"quote\"]/h2"))); 
-		assertEquals("-The Shafeeq not found", "-The Shafeeq", myDynamicElement.getText());
-	}
-	
-	@Test
-	public void fluentWait() {
-		
-	}
+//	@Test
+//	
+//	public void explicitWait() throws InterruptedException {
+//		driver.get("https://christophperrins.github.io/TestingSite/"); 
+//		WebElement myDynamicElement = (new WebDriverWait(driver, 10)).until(ExpectedConditions.textToBePresentInElement(element, )(By.xpath("//*[@id=\"quote\"]/h2"))); 
+//		assertEquals("-The Shafeeq not found", "-The Shafeeq", myDynamicElement.getText());
+//	}
+//	
+//	@Test
+//	public void fluentWait() {
+//		
+//	}
 }
